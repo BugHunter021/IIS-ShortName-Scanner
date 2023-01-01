@@ -27,7 +27,6 @@ while len(password) < 8:
 			break
 	if findch =='no' :
 		print('more char not find')
-		#~1.
 	#print('findch=====',findch)
 #print(x.text)
 
